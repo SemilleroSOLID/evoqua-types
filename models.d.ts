@@ -8,3 +8,9 @@ export interface MetricHistory {
   versions: string[];
   values: number[];
 }
+
+export interface VersionMetrics {
+  version: string;
+  metrics: string[];
+  values: number[];
+}
