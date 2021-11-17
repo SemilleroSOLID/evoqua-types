@@ -1,15 +1,24 @@
-import { Metric, MetricHistory, VersionMetrics } from './models';
+import {
+  Metric,
+  MetricHistory,
+  Project,
+  Version,
+  VersionMetrics,
+} from './models';
 
-export interface MetricHistoryApi {
+export interface MetricHistoryGetter {
   getMetricHistory:
-    (projectId: string, metricKey: string) => Promise<MetricHistory>;
-  getMetrics: (projectId: string) => Promise<Metric[]>;
-  getProjectIds: () => Promise<string[]>;
+    (projectKey: Project['key'], metric: Metric) => Promise<MetricHistory>;
+  getMetrics: (projectKey: Project['key']) => Promise<Metric[]>;
 }
 
-export interface VersionMetricsApi {
+export interface ProjectsGetter {
+  getProjects: () => Promise<Project[]>;
+}
+
+export interface VersionMetricsGetter {
   getVersionMetrics: (
-    projectId: string, version: string, metrics: Metric[]
+    projectKey: Project['key'], version: Version, metrics: Metric[]
   ) => Promise<VersionMetrics>;
-  getVersions: (projectId: string) => Promise<string[]>;
+  getVersions: (projectKey: Project['key']) => Promise<string[]>;
 }

@@ -1,13 +1,20 @@
 export interface Metric {
   key: string;
-  label: string;
+  name: string;
 }
 
 export interface MetricHistory {
-  name: string;
+  metric: string;
   versions: string[];
   values: number[];
 }
+
+export interface Project {
+  key: string;
+  name: string;
+}
+
+export type Version = string;
 
 export interface VersionMetrics {
   version: string;
