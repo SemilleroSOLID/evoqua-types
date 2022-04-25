@@ -20,5 +20,5 @@ export interface VersionMetricsGetter {
   getVersionMetrics: (
     projectKey: Project['key'], version: Version, metrics: Metric[]
   ) => Promise<VersionMetrics>;
-  getVersions: (projectKey: Project['key']) => Promise<string[]>;
+  getVersions: (projectKey: Project['key']) => Promise<Version[]>;
 }
